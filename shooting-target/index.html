@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shooting Target</title>
+    <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <main>
+        <h1>Tiro al blanco</h1>
+        <div id="play_area">
+        </div>
+        <div id="config">
+            <label for="tiempo">Tiempo de juego:</label>
+            <select id="tiempo">
+                <option value="10" selected>10 Segundos</option>
+                <option value="20">20 Segundos</option>
+                <option value="30">30 Segundos</option>
+            </select>
+            <label for="dificultad">Dificultad: </label>
+            <select name="dificultad" id="dificultad">
+                <option value="facil">Fácil</option>
+                <option value="normal">Normal</option>
+                <option value="dificil">Dificil</option>
+            </select>
+        </div>
+        <!-- TODO: Arreglar layout -->
+        <!-- TODO: Añadir opcion de subir la puntuacion al leaderboard -->
+        <div id="controles_partida">
+            <input name="username" id="username" placeholder="Username">
+            <button id="start">Jugar</button>
+        </div>
+        <div id="info">
+            <div id="temporizador">Tiempo restante: <span></span></div>
+            <div id="puntos">Puntos: <span></span></div>
+        </div>
+        <div id="leaderboard">
+
+        </div>
+    </main>
+    <script src="js/shooting_target.js"></script>
+</body>
+
+</html>
