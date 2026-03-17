@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Random Number</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <main>
+        <h2>Random Number</h2>
+        <p>Generate a number and prevent that number for appearing again</p>
+        <input type="number" id="min" min="0" placeholder="Min">
+        <input type="number" id="max" min="0" placeholder="Max">
+
+        <br>
+
+        <button id="gen">Generar</button>
+        <button id="reset">Reset</button>
+        <button id="contrast">Change Contrast</button>
+
+        <div id="info">
+            <div id="result"></div>
+            <div>Generated numbers: <span id="list"></span></div>
+            <p id="remaining"></p>
+        </div>
+    </main>
+    <script src="js/app.js"></script>
+
+</body>
+
+</html>
