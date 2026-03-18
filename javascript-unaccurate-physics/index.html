@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unaccurate Physics with Javascript</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <main>
+        <div id="no-play">
+            <h1>Unaccurate Physics</h1>
+
+            <div id="explicacion">
+                <p>This is an attempt to make a simulation of physics written with html css and javascript</p><br>
+                <ul>
+                    <li>Keyboard arrows apply impulse</li>
+                    <li>Click inside the play area to drag the object</li>
+                    <li>You can throw the object with the movement of your mouse</li>
+                </ul>
+            </div>
+            <div id="controles">
+                <div>
+                    <label for="gravedad">Gravity: </label>
+                    <input type="number" name="gravedad" id="gravedad" lang="en" step="0.01">
+                </div>
+                <div>
+                    <label for="friccion">Friction: </label>
+                    <input type="number" name="friccion" id="friccion" lang="en" step="0.01">
+                </div>
+                <div>
+                    <label for="rebote_x">Horizontal Rebound: </label>
+                    <input type="number" name="rebote_x" id="rebote_x" lang="en" step="0.01">
+                </div>
+                <div>
+                    <label for="rebote_x">Vertical Rebound: </label>
+                    <input type="number" name="rebote_y" id="rebote_y" lang="en" step="0.01">
+                </div>
+                <div>
+                    <label for="v_impulso">Impulse Velocity: </label>
+                    <input type="number" name="v_impulso" id="v_impulso" lang="en" step="0.01">
+                </div>
+            </div>
+        </div>
+        <div id="reserve"></div>
+    </main>
+
+    <script src="js/app.js" type="module"></script>
+</body>
+
+</html>

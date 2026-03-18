@@ -1,0 +1,52 @@
+:root {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+*,
+*::after,
+*::before {
+    margin: 0;
+    padding: 0;
+}
+
+main {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    padding: 1rem;
+    margin: 1rem;
+}
+
+#no-play {
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: start;
+    height: 100%;
+}
+
+canvas {
+    border: 1px solid black;
+}
+
+#controles {
+    background-color: aliceblue;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    padding: 0.5rem;
+}
+
+#controles>div {
+    display: flex;
+    flex-direction: column;
+    margin: 1rem;
+}
+
+li {
+    margin-left: 1rem;
+}
+
+ul,
+li {
+    margin-bottom: 0.3rem;
+}
