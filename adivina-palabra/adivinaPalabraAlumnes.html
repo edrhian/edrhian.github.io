@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+
+<html lang="es">
+
+<head>
+  <meta charset="utf-8" />
+  <title>ARRRRG-divina</title>
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/5/w3.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+  <main class="w3-margin w3-border-left w3-border-right w3-border-lightgray w3-border-2">
+    <header>
+      <h1 tabindex="0">A&lt;div&gt;iNa Palabras!!
+        <button id="contraste" class="fa fa-adjust hidden" tabindex="0" aria-hidden="false"></button>
+        <button id="aumentar" class="hidden" tabindex="0">A<sup>+</sup></button>
+        <button id="disminuir" class="hidden" tabindex="0">A<sup>-</sup></button>
+        <button id="accesibilidad" tabindex="0" class='fa fa-universal-access'></button>
+      </h1>
+    </header>
+
+    <h2 class="w3-bold" tabindex="0">Palabra a adivinar</h2>
+    <hr id="linea" />
+
+    <div class="content">
+      <input type="text" class="lletra" maxlength="1" />
+
+      <div class="inputs"></div>
+
+      <div class="detalles">
+        <p class="pista ajustable" tabindex="0">Pista: <span></span></p>
+        <p class="restantes ajustable" tabindex="0">Intentos restantes: <span></span></p>
+        <p class="letrasErroneas ajustable" tabindex="0">Letras erroneas: <span></span></p>
+      </div>
+      <div class="mostra ajustable" tabindex="0"></div>
+      <div class="ajustable">
+        <button id="boton" class="reset-btn w3-button w3-teal ajustable">Adivinar Palabra</button>
+      </div>
+    </div>
+    <hr>
+  </main>
+
+  <script src="js/listadoPalabras.js"></script>
+  <script src="js/adivinaPalabra.js"></script>
+  <script src="js/mensajes.js"></script>
+</body>
+
+</html>

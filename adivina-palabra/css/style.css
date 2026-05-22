@@ -1,0 +1,143 @@
+:root {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+*,
+*::before,
+*::after,
+html {
+    margin: 0;
+    padding: 0;
+}
+
+p,
+div {
+    margin-top: 0.5rem;
+}
+
+.hidden {
+    display: none !important;
+}
+
+h1,
+h2 {
+    text-align: center;
+    margin-top: 1rem
+}
+
+header {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-around;
+    background-color: black;
+    color: white;
+    border-top: 5px teal solid;
+    border-bottom: 5px teal solid;
+}
+
+h1 {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+}
+
+h2 {
+    margin-bottom: 0;
+}
+
+hr {
+    margin: 0 1rem;
+    padding: 0;
+}
+
+.content {
+    display: flex;
+    flex-flow: column wrap;
+    padding: 1rem;
+}
+
+.lletra {
+    display: none;
+}
+
+.pista,
+.restantes,
+.letrasErroneas {
+    font-weight: bold;
+}
+
+.pista>span,
+.restantes>span,
+.letrasErroneas>span {
+    font-weight: normal;
+}
+
+.restantes>span,
+.letrasErroneas>span {
+    color: red;
+}
+
+.inputs {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+}
+
+.celda {
+    background-color: white;
+    width: 65px;
+    height: 65px;
+    border: 1px black solid;
+    border-radius: 5px;
+    margin: 0.1rem;
+    text-align: center;
+    font-size: 40px;
+}
+
+#boton>button:active {
+    border: 2px red solid;
+}
+
+#contraste,
+#accesibilidad {
+    color: white;
+    font-size: 30px !important;
+    padding: 0.3rem;
+    width: 45px;
+    height: 45px;
+}
+
+#accesibilidad,
+#contraste,
+#aumentar,
+#disminuir {
+    background-color: black;
+    border: 0;
+    padding: 0.3rem;
+    width: 45px;
+    height: 38px;
+    margin: 0 0.7rem;
+    border-radius: 10px;
+}
+
+#contraste {
+    border: 1px solid white;
+}
+
+#aumentar,
+#disminuir {
+    color: white;
+    font-size: 20px;
+    text-align: center;
+    border: 1px solid white;
+}
+
+h1:focus,
+h2:focus,
+p:focus,
+button:focus,
+div:focus {
+    outline: none;
+    border: 2px red solid !important;
+}
