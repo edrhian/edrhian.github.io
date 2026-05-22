@@ -1,0 +1,130 @@
+:root {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Reset */
+*,
+*::after,
+*::before {
+    margin: 0;
+    padding: 0;
+}
+
+.hidden {
+    display: none;
+}
+
+h1 {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+    margin-top: 1rem;
+}
+
+header {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-around;
+    background-color: black;
+    color: white;
+    border-top: 5px teal solid;
+    border-bottom: 5px teal solid;
+    margin-bottom: 1rem;
+}
+
+/* Margenes */
+label,
+small,
+p {
+    display: block;
+    margin-bottom: 1rem;
+}
+
+p {
+    padding: 0.5rem;
+}
+
+button,
+input {
+    margin-bottom: 1rem;
+}
+
+/* Display Botones del juego */
+.juegoBtns {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+}
+
+.btnJugable {
+    margin: 0.2rem;
+}
+
+#deNuevo:not(.hidden) {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+#nombre {
+    width: 50%;
+}
+
+#numMin,
+#numMax {
+    width: 200px;
+}
+
+#contraste,
+#aumentar,
+#disminuir {
+    background-color: black;
+    margin: 0 0.7rem;
+    border-radius: 10px;
+}
+
+#aumentar,
+#disminuir {
+    padding: 0.3rem;
+    width: 45px;
+    height: 38px;
+    border-radius: 10px;
+    color: white;
+    font-size: 20px;
+    text-align: center;
+    border: 1px solid white;
+}
+
+#contraste {
+    display: flex;
+    border: 0;
+    justify-content: center;
+    align-items: center;
+    background-image: url(../img/contraste.png);
+    padding: 1rem;
+    width: 30px;
+    height: 30px;
+}
+
+#contraste>img {
+    background-color: white;
+    width: 23px;
+    height: 23px;
+    border-radius: 20px;
+}
+
+/* ACCESIBILIDAD */
+h1:focus,
+h2:focus,
+p:focus,
+input:focus,
+button:focus,
+div:focus,
+label:focus,
+small:focus,
+section:focus {
+    outline: none;
+    border: 2px red solid !important;
+}
