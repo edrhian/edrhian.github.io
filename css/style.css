@@ -46,6 +46,12 @@ h1 {
     margin-right: 15px;
 }
 
+a {
+    color: var(--accent);
+    text-decoration: none;
+    margin-right: 15px;
+}
+
 #contact span {
     color: var(--text-date);
 }
