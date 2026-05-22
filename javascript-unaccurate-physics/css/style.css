@@ -11,7 +11,7 @@
 
 main {
     display: flex;
-    flex-flow: row nowrap;
+    flex-flow: column nowrap;
     justify-content: space-between;
     padding: 1rem;
     margin: 1rem;
