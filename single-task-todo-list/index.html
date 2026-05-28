@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enfoque Puro - Gestión de Tareas</title>
+    <style>
+        :root {
+            --bg-color: #f8f9fa;
+            --card-bg: #ffffff;
+            --text-color: #212529;
+            --text-muted: #6c757d;
+            --accent-color: #4f46e5;
+            --accent-hover: #4338ca;
+            --success-color: #10b981;
+            --border-color: #e5e7eb;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        header {
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        /* Navegación por pestañas */
+        .nav-tabs {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 25px;
+            background: var(--border-color);
+            padding: 5px;
+            border-radius: 30px;
+        }
+
+        .tab-btn {
+            background: none;
+            border: none;
+            padding: 10px 24px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            border-radius: 25px;
+            transition: all 0.2s ease;
+            color: var(--text-muted);
+        }
+
+        .tab-btn.active {
+            background: var(--card-bg);
+            color: var(--accent-color);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+        }
+
+        /* Contenedores de vistas */
+        .view {
+            display: none;
+            width: 100%;
+            max-width: 500px;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .view.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Formulario y Tarjetas */
+        .card {
+            background: var(--card-bg);
+            padding: 20px;
+            border-radius: 16px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+            margin-bottom: 20px;
+            border: 1px solid var(--border-color);
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 6px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--text-muted);
+        }
+
+        input,
+        textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            font-size: 1rem;
+            background: var(--bg-color);
+        }
+
+        input:focus,
+        textarea:focus {
+            outline: 2px solid var(--accent-color);
+            background: var(--card-bg);
+        }
+
+        button.primary-btn {
+            width: 100%;
+            background: var(--accent-color);
+            color: white;
+            border: none;
+            padding: 14px;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        button.primary-btn:hover {
+            background: var(--accent-hover);
+        }
+
+        /* Lista de tareas arrastrables */
+        .todo-list {
+            list-style: none;
+        }
+
+        .todo-item {
+            background: var(--card-bg);
+            padding: 16px;
+            border-radius: 12px;
+            margin-bottom: 10px;
+            border: 1px solid var(--border-color);
+            cursor: grab;
+            user-select: none;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .todo-item:active {
+            cursor: grabbing;
+        }
+
+        .todo-item.dragging {
+            opacity: 0.5;
+            background: #eef2ff;
+            border-dashed: 2px var(--accent-color);
+        }
+
+        .todo-item h3 {
+            font-size: 1.1rem;
+            margin-bottom: 4px;
+        }
+
+        .todo-item p {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+
+        /* Vista de Enfoque (1 Sola Tarea) */
+        .focus-container {
+            text-align: center;
+            padding: 40px 20px;
+        }
+
+        .focus-title {
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+        }
+
+        .focus-desc {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            margin-bottom: 40px;
+        }
+
+        /* Botón de Doble Toque */
+        .complete-btn {
+            background: #fee2e2;
+            color: #dc2626;
+            border: 2px solid #fca5a5;
+            padding: 18px 32px;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            width: 100%;
+            max-width: 280px;
+        }
+
+        .complete-btn.confirm {
+            background: var(--success-color);
+            color: white;
+            border-color: #059669;
+            transform: scale(1.05);
+        }
+
+        .empty-state {
+            text-align: center;
+            color: var(--text-muted);
+            padding: 40px 20px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h1>Enfoque</h1>
+    </header>
+
+    <nav class="nav-tabs">
+        <button class="tab-btn active" onclick="switchView('lista')">Mi Lista</button>
+        <button class="tab-btn" onclick="switchView('enfoque')">Enfocar</button>
+    </nav>
+
+    <main id="view-lista" class="view active">
+        <div class="card">
+            <form id="todo-form">
+                <div class="form-group">
+                    <label for="task-title">Título de la tarea</label>
+                    <input type="text" id="task-title" required placeholder="Ej. Lavar la ropa">
+                </div>
+                <div class="form-group">
+                    <label for="task-desc">Descripción corta (opcional)</label>
+                    <textarea id="task-desc" rows="2" placeholder="Ej. Separar la ropa blanca"></textarea>
+                </div>
+                <button type="submit" class="primary-btn">Añadir a la lista</button>
+            </form>
+        </div>
+
+        <ul class="todo-list" id="todo-list">
+        </ul>
+    </main>
+
+    <main id="view-enfoque" class="view">
+        <div class="card focus-container" id="focus-card">
+        </div>
+    </main>
+
+    <script>
+        // Estado de la aplicación
+        let tasks = JSON.parse(localStorage.getItem('tasks')) || [
+            { id: '1', title: 'Completar este ejemplo', desc: 'Prueba a arrastrarme o ve a la pestaña Enfocar.' },
+            { id: '2', title: 'Preparar café', desc: 'Una taza bien caliente para empezar el día.' }
+        ];
+
+        let doubleClickTimer = null;
+
+        // Elementos del DOM
+        const todoForm = document.getElementById('todo-form');
+        const todoListEl = document.getElementById('todo-list');
+        const focusCardEl = document.getElementById('focus-card');
+
+        // Guardar en LocalStorage
+        function saveTasks() {
+            localStorage.setItem('tasks', JSON.stringify(tasks));
+        }
+
+        // Cambiar entre vistas (Pestañas)
+        function switchView(viewName) {
+            document.querySelectorAll('.view').forEach(v => v.classList.remove('active'));
+            document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+
+            document.getElementById(`view-${viewName}`).classList.add('active');
+            event.currentTarget.classList.add('active');
+
+            if (viewName === 'enfoque') {
+                renderFocusView();
+            }
+        }
+
+        // Renderizar la lista de tareas (Vista 1)
+        function renderListView() {
+            todoListEl.innerHTML = '';
+
+            if (tasks.length === 0) {
+                todoListEl.innerHTML = '<p class="empty-state">No tienes tareas pendientes. ¡Buen trabajo!</p>';
+                return;
+            }
+
+            tasks.forEach((task, index) => {
+                const li = document.createElement('li');
+                li.className = 'todo-item';
+                li.draggable = true;
+                li.dataset.index = index;
+                li.innerHTML = `
+                    <h3>${task.title}</h3>
+                    ${task.desc ? `<p>${task.desc}</p>` : ''}
+                `;
+
+                // Eventos Drag and Drop (Escritorio)
+                li.addEventListener('dragstart', handleDragStart);
+                li.addEventListener('dragover', handleDragOver);
+                li.addEventListener('drop', handleDrop);
+                li.addEventListener('dragend', handleDragEnd);
+
+                // Soporte Touch (Móviles)
+                li.addEventListener('touchstart', handleTouchStart, { passive: false });
+                li.addEventListener('touchmove', handleTouchMove, { passive: false });
+                li.addEventListener('touchend', handleTouchEnd);
+
+                todoListEl.appendChild(li);
+            });
+        }
+
+        // Formulario: Añadir tarea
+        todoForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const title = document.getElementById('task-title').value.trim();
+            const desc = document.getElementById('task-desc').value.trim();
+
+            if (!title) return;
+
+            tasks.push({
+                id: Date.now().toString(),
+                title,
+                desc
+            });
+
+            saveTasks();
+            renderListView();
+            todoForm.reset();
+        });
+
+        // --- LÓGICA REORDENAR (DRAG & DROP NATIVO Y MÓVIL) ---
+        let dragStartIndex;
+        let activeTouchItem = null;
+
+        function handleDragStart(e) {
+            dragStartIndex = +this.closest('.todo-item').dataset.index;
+            this.classList.add('dragging');
+        }
+
+        function handleDragOver(e) {
+            e.preventDefault();
+        }
+
+        function handleDrop(e) {
+            const dragEndIndex = +this.closest('.todo-item').dataset.index;
+            swapItems(dragStartIndex, dragEndIndex);
+            this.classList.remove('dragging');
+        }
+
+        function handleDragEnd() {
+            this.classList.remove('dragging');
+        }
+
+        // Adaptación móvil táctil simulando ordenación
+        function handleTouchStart(e) {
+            activeTouchItem = this;
+            dragStartIndex = +this.dataset.index;
+            this.classList.add('dragging');
+        }
+
+        function handleTouchMove(e) {
+            e.preventDefault(); // Previene scroll mientras arrastras
+            const touch = e.touches[0];
+            const target = document.elementFromPoint(touch.clientX, touch.clientY);
+            const item = target ? target.closest('.todo-item') : null;
+
+            if (item && item !== activeTouchItem) {
+                const dragEndIndex = +item.dataset.index;
+                swapItems(dragStartIndex, dragEndIndex);
+                dragStartIndex = dragEndIndex; // Actualiza índice base en tiempo real
+            }
+        }
+
+        function handleTouchEnd() {
+            if (activeTouchItem) {
+                activeTouchItem.classList.remove('dragging');
+                activeTouchItem = null;
+            }
+        }
+
+        function swapItems(from, to) {
+            const itemMoved = tasks.splice(from, 1)[0];
+            tasks.splice(to, 0, itemMoved);
+            saveTasks();
+            renderListView();
+        }
+
+
+        // --- VISTA DE ENFOQUE (1 SOLA TAREA) ---
+        let isWaitingForSecondTap = false;
+
+        function renderFocusView() {
+            if (tasks.length === 0) {
+                focusCardEl.innerHTML = `
+                    <h2 class="focus-title">¡Estás libre!</h2>
+                    <p class="focus-desc">No hay tareas prioritarias en este momento.</p>
+                `;
+                return;
+            }
+
+            // Mostramos siempre la primera de la lista ordenada
+            const currentTask = tasks[0];
+            isWaitingForSecondTap = false; // Resetear estado del botón
+
+            focusCardEl.innerHTML = `
+                <h2 class="focus-title">${currentTask.title}</h2>
+                <p class="focus-desc">${currentTask.desc ? currentTask.desc : 'Sin descripción adicional.'}</p>
+                <button class="complete-btn" id="action-btn" onclick="handleCompleteTap()">
+                    Completar tarea
+                </button>
+            `;
+        }
+
+        // Manejador del doble toque/click consciente
+        function handleCompleteTap() {
+            const btn = document.getElementById('action-btn');
+
+            if (!isWaitingForSecondTap) {
+                // Primer toque
+                isWaitingForSecondTap = true;
+                btn.innerText = '¿Seguro? Toca otra vez';
+                btn.classList.add('confirm');
+
+                // Si no toca por segunda vez en 3 segundos, se cancela
+                doubleClickTimer = setTimeout(() => {
+                    isWaitingForSecondTap = false;
+                    btn.innerText = 'Completar tarea';
+                    btn.classList.remove('confirm');
+                }, 3000);
+
+            } else {
+                // Segundo toque verificado
+                clearTimeout(doubleClickTimer);
+
+                // Animación rápida antes de borrar
+                btn.innerText = '¡Hecho!';
+
+                setTimeout(() => {
+                    tasks.shift(); // Borra la primera tarea (la que estábamos viendo)
+                    saveTasks();
+                    renderListView();
+                    renderFocusView(); // Carga la siguiente automáticamente
+                }, 400);
+            }
+        }
+
+        // Inicialización
+        renderListView();
+    </script>
+</body>
+
+</html>
