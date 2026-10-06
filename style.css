@@ -1,0 +1,71 @@
+:root {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+*,
+*::after,
+*::before {
+    margin: 0;
+    padding: 0;
+}
+
+html,
+body {
+    display: flex;
+    height: 100%;
+    margin: 0;
+    flex-flow: column;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    flex: 1 1 auto;
+    padding: 1rem;
+    /* background-color: aliceblue; */
+}
+
+footer {
+    /* background-color: beige; */
+    padding: 1rem;
+}
+
+h1 {
+    text-align: center;
+    /* background-color: cadetblue; */
+}
+
+a:visited,
+a {
+    color: black;
+    text-decoration: none;
+}
+
+.portfolios {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    padding: 1rem;
+    /* background-color: darkcyan; */
+}
+
+.portfolio-card,
+a {
+    display: flex;
+    flex-direction: column;
+    min-height: 300px;
+    height: fit-content;
+    width: 20%;
+    margin: 1rem;
+    padding: 1rem;
+    /* background-color: aliceblue; */
+    border: 2px solid gray;
+}
+
+.portfolio-card>* {
+    margin: 0.2rem;
+}
+
+.portfolio-card>img {
+    min-height: 100px;
+}
