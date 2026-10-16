@@ -1,0 +1,43 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap');
+
+:root {
+    --font-main: "Roboto Mono", monospace;
+    --color-primary: #272727;
+    --bg-color: #ededed;
+    --text-color: #000000;
+    --color-good: rgb(42, 243, 27);
+    --color-bad: rgb(201, 36, 36);
+}
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
+body, h1, h2, h3, h4, h5, h6, button, input, textarea, select {
+    font-family: var(--font-main);
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: var(--color-primary);
+}
+
+ul li{
+    float: left;
+}
+
+ul li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 0.7rem 1rem;
+    text-decoration: none;
+}
+
+ul li a:hover {
+    background-color: #161616;
+}
