@@ -41,7 +41,7 @@ footer {
     /* position: sticky; */
     top: 0;
     z-index: 10;
-    background-color: var(--bg-color-2);
+    background-color: var(--color-primary);
     border-bottom: 1px solid var(--border);
 }
 
@@ -57,17 +57,17 @@ footer {
 }
 
 .navbar a {
-    color: var(--text-muted);
+    color: #fff;
     text-decoration: none;
     margin: 0;
 }
 
 .navbar a:hover {
-    color: var(--text-main);
+    color: var(--bg-color-1);
 }
 
 .navbar .brand a {
-    color: var(--text-main);
+    color: white;
     font-weight: 700;
 }
 
@@ -205,10 +205,10 @@ footer p {
     bottom: 2rem;
     right: 2rem;
     z-index: 99;
-    border: 1px solid var(--border);
+    border: 1px solid var(--color-primary);
     outline: none;
-    background-color: #fff;
-    color: var(--text-main);
+    background-color: var(--color-primary);
+    color: #fff;
     cursor: pointer;
     padding: 0.5rem 0.9rem;
     border-radius: 6px;
@@ -217,8 +217,7 @@ footer p {
 }
 
 #backToTop:hover {
-    color: var(--text-main);
-    border-color: #ccc;
+    color: var(--bg-color-1);
 }
 
 /* Responsivo para móviles */
