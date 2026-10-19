@@ -64,11 +64,13 @@ footer {
 
 .navbar a:hover {
     color: var(--bg-color-1);
+    text-decoration: underline;
 }
 
 .navbar .brand a {
     color: white;
     font-weight: 700;
+    font-family: var(--font-alternative);
 }
 
 /* HEADER */

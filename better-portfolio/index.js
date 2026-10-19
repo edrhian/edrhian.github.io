@@ -1,4 +1,4 @@
-let btnBackToTop = document.querySelector("button#backToTop");
+let btnBackToTop = document.querySelector("#backToTop");
 
 window.onscroll = () => {
   if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
