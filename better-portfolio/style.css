@@ -3,10 +3,23 @@
 :root {
     --font-main: "Roboto Mono", monospace;
     --color-primary: #272727;
-    --bg-color: #ededed;
-    --text-color: #000000;
+    --bg-color-1: #ededed;
+    --bg-color-2: #fdfdfd;
+    --text-main: #000000;
     --color-good: rgb(42, 243, 27);
     --color-bad: rgb(201, 36, 36);
+    --text-muted: #777;
+    --text-date: #999;
+    --accent: #007aff;
+}
+
+* {
+    font-family: var(--font-main);
+}
+
+html {
+    scroll-behavior: smooth;
+    /* font-size: 62.5%; */
 }
 
 body {
@@ -14,11 +27,24 @@ body {
     padding: 0;
 }
 
-body, h1, h2, h3, h4, h5, h6, button, input, textarea, select {
-    font-family: var(--font-main);
+header {
+    padding: 1rem 2rem;
+    background-color: var(--bg-color-2);
 }
 
-ul {
+h2 {
+    padding: 1rem 1.5rem;
+    margin: 0;
+    background-color: var(--bg-color-1);
+}
+
+section {
+    padding: 1rem 1.5rem;
+    margin: 0;
+}
+
+/* NAVBAR */
+.navbar {
     list-style-type: none;
     margin: 0;
     padding: 0;
@@ -26,11 +52,15 @@ ul {
     background-color: var(--color-primary);
 }
 
-ul li{
+.navbar-item {
+    margin: 0.3rem;
+}
+
+.navbar .navbar-item{
     float: left;
 }
 
-ul li a {
+.navbar .navbar-item a {
     display: block;
     color: white;
     text-align: center;
@@ -38,6 +68,58 @@ ul li a {
     text-decoration: none;
 }
 
-ul li a:hover {
+.navbar .navbar-item a:hover {
     background-color: #161616;
+    border-radius: 0.5rem;
+}
+
+.brand {
+    border: 1px solid var(--bg-color-1);
+    border-radius: 0.5rem;
+}
+
+.brand>a {
+    font-weight: bolder;
+}
+
+/* CONTACT */
+#contact {
+    font-size: 14px;
+}
+
+#contact a,
+#contact span {
+    color: var(--accent);
+    text-decoration: none;
+    margin-right: 15px;
+}
+
+#contact span {
+    color: var(--text-muted);
+}
+
+#contact a:hover {
+    text-decoration: underline;
+}
+
+
+/* BUTTONS */
+#backToTop {
+  display: none;
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem; 
+  z-index: 99; 
+  border: none;
+  outline: none;
+  background-color: var(--color-primary); /* Set a background color */
+  color: white; 
+  cursor: pointer;
+  padding: 0.7rem;
+  border-radius: 0.5rem;
+  font-size: 18px;
+}
+
+#backToTop:hover {
+  background-color: #555; /* Add a dark-grey background on hover */
 }
