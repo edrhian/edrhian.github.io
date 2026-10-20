@@ -74,6 +74,18 @@ footer {
   font-family: var(--font-alternative);
 }
 
+.demo summary {
+  cursor: pointer;
+  color: var(--accent);
+}
+.demo img {
+  display: block;
+  margin: 10px 0;
+  padding: 12px;
+  background: #fff;
+  border: 1px solid var(--border);
+}
+
 /* HEADER */
 header {
   margin-top: 50px;
