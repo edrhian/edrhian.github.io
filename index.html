@@ -3,15 +3,16 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Edrhian Valerio | Software Developer</title>
+    <title>Edrhian Valerio | Desarrollador de software junior</title>
+    <meta
+      name="description"
+      content="Portfolio de Edrhian Valerio, desarrollador de software junior en Barcelona: Java, React, Python e IA. Proyectos, experiencia y CV."
+    />
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
     <div class="navbar-wrap">
       <ul class="navbar">
-        <li class="navbar-item brand">
-          <a href="#" onclick="copyToClipboard()">Edrhian</a>
-        </li>
         <li class="navbar-item">
           <a href="#experiencia">Experiencia laboral</a>
         </li>
@@ -22,19 +23,31 @@
         <li class="navbar-item">
           <a href="#tecnologias">Tecnologías</a>
         </li>
-        <li class="navbar-item"><a href="#cosas">Cosas</a></li>
+        <li class="navbar-item">
+          <a href="#idiomas">Idiomas y competencias</a>
+        </li>
+        <li class="navbar-item"><a href="#cosas">Pequeños Proyectos</a></li>
       </ul>
     </div>
 
     <header>
       <h1>Edrhian Valerio Andrés</h1>
       <div id="tagline">
-        Técnico Superior en Desarrollo de Aplicaciones Multiplataforma con
-        titulación del Curso de Especialización en Big Data e Inteligencia
-        Artificial y certificado de profesionalidad en Desarrollo de
-        Aplicaciones Web
+        <strong>Desarrollador de software junior</strong><br />
+        Técnico Superior en Desarrollo de Aplicaciones Multiplataforma, con
+        especialización en IA y Big Data y certificado en Desarrollo Web.
+        Barcelona, disponible para presencial/híbrido o remoto.
       </div>
       <div id="contact">
+        <a
+          href="#"
+          onclick="
+            copyToClipboard();
+            return false;
+          "
+          id="copyPortfolio"
+          >Copiar enlace</a
+        >
         <a href="mailto:edrhian27@gmail.com">Email</a>
         <a href="https://linkedin.com/in/edrhian-valerio-andres" target="_blank"
           >LinkedIn</a
@@ -46,8 +59,40 @@
     </header>
 
     <main>
+      <h2>Sobre mí</h2>
+      <p>
+        Soy desarrollador junior con base sólida en programación orientada a
+        objetos (Java, Python) y desarrollo web (HTML, CSS, JavaScript, React).
+        Empecé con aplicaciones multiplataforma, di el salto a la IA y los datos
+        con PyTorch y completé mi formación con desarrollo web. En mis prácticas
+        en Eviden y 3Dthinks he trabajado con código real, equipos y
+        herramientas empresariales. Busco un puesto junior donde seguir
+        creciendo aplicando buenas prácticas y trabajo en equipo.
+      </p>
+
       <!-- EXPERIENCIA LABORAL -->
       <h2 id="experiencia">Experiencia laboral</h2>
+      <section>
+        <h3>
+          3Dthinks
+          <span class="role">Desarrollador en prácticas</span>
+          <span class="time">2026</span>
+        </h3>
+        <ul>
+          <li>
+            Desarrollo de la aplicación Windows de TalX (en desarrollo) con
+            Flutter.
+          </li>
+          <li>
+            Desarrollo de la funcionalidad de importación de datos mediante
+            códigos QR, disponible en la app móvil de
+            <a
+              href="https://play.google.com/store/apps/details?id=com.threedthinks.virtualtalker&hl=es_419"
+              >TalX</a
+            >.
+          </li>
+        </ul>
+      </section>
       <section>
         <h3>
           EVIDEN <span class="role">Desarrollador</span>
@@ -56,10 +101,9 @@
         <ul>
           <li>
             Colaborador en el proyecto de migración de contenidos de la intranet
-            de TMB con SharePoint.
+            de TMB a SharePoint.
           </li>
         </ul>
-
         <h3>
           EVIDEN <span class="role">Desarrollador en prácticas</span>
           <span class="time">03/2024 — 07/2024</span>
@@ -86,11 +130,10 @@
         </h3>
         <p>
           Aplicación diseñada para monitorear la evolución del Alzheimer
-          mediante juegos de memoria, proveyendo datos analíticos para
-          cuidadores y profesionales. Desarrollado en el Curso de Desarrollo de
-          Aplicaciones Multiplataforma.
+          mediante juegos de memoria, con datos analíticos para cuidadores y
+          profesionales. Proyecto en equipo de 3 personas durante el CFGS DAM
+          donde tuve el rol de Project Manager
         </p>
-
         <h3>
           <a
             href="https://github.com/edrhian/ai-final-project-tetris-agent"
@@ -104,19 +147,19 @@
           Tetris de forma autónoma. Proyecto final del curso de especialización
           en IA.
         </p>
-
         <h3>
           <a
             href="https://github.com/edrhian/app-stop-right-there"
             target="_blank"
             >Stop Right There!</a
           >
-          <span class="time">Python, TUI - Productividad</span>
+          <span class="time">Python, Java, TUI - Productividad</span>
         </h3>
         <p>
-          Herramienta de terminal para Windows enfocada en bloquear
-          distracciones mediante la gestión de procesos de ventanas. Actualmente
-          estoy desarrollando la versión con Java.
+          Herramienta de terminal para Windows que bloquea distracciones
+          gestionando procesos de ventanas. Primera versión en Python;
+          actualmente la estoy reescribiendo en Java aplicando programación
+          orientada a objetos.
         </p>
       </section>
 
@@ -152,23 +195,44 @@
         </p>
       </section>
 
-      <!-- TECNOLOGÍAS E IDIOMAS -->
+      <!-- TECNOLOGÍAS -->
       <h2 id="tecnologias">Tecnologías</h2>
       <section>
         <p>
-          <strong>Back-end:</strong> Python, Java, PHP, Node.js. <br />
-          <strong>Front-end:</strong> HTML5, CSS3, JavaScript. <br />
-          <strong>BBDD:</strong> MySQL, MongoDB, SQLite, Postgres. <br />
-          <strong>Frameworks</strong> Spring Boot, React, React Native, Express.
-          <br />
+          <strong>Lenguajes:</strong> Java, Python, JavaScript, PHP, SQL <br />
+          <strong>Front-end:</strong> HTML5, CSS3, JavaScript, React <br />
+          <strong>Móvil:</strong> React Native, Flutter <br />
+          <strong>Back-end:</strong> Spring Boot, Node.js, Express <br />
+          <strong>Datos e IA:</strong> PyTorch, scikit-learn, Machine Learning,
+          Hadoop, Spark, Power BI <br />
+          <strong>BBDD:</strong> MySQL, PostgreSQL, SQLite, MongoDB <br />
+          <strong>Herramientas:</strong> Git, GitHub, .NET (formación),
+          SharePoint, Power Platform
         </p>
       </section>
 
-      <!-- COSAS -->
-      <h2 id="cosas">Cosas</h2>
+      <!-- IDIOMAS y competencias-->
+      <h2 id="idiomas">Idiomas y competencias</h2>
       <section>
-        <h3>Pequeñas webs desarrolladas durante el curso de Desarrollo Web</h3>
+        <p><strong>Español y catalán:</strong> nativo</p>
+        <p><strong>Inglés:</strong> Intermedio (B1)</p>
+        <strong>Competencias:</strong>
+        <ul>
+          <li>Pensamiento analítico y lógico</li>
+          <li>Trabajo en equipo</li>
+          <li>Planificación y organización</li>
+          <li>Aprendizaje continuo</li>
+          <li>Orden y calidad en el código</li>
+        </ul>
+      </section>
 
+      <!-- COSAS -->
+      <h2 id="cosas">Pequeños Proyectos</h2>
+      <section>
+        <p>
+          Pequeños experimentos web hechos con HTML, CSS y JavaScript durante el
+          certificado de Desarrollo Web, jugables directamente en el navegador.
+        </p>
         <p>HTML, CSS y Javascript</p>
         <ul>
           <li>
@@ -197,7 +261,7 @@
             <a
               href="https://webapp-simple-weather.onrender.com/"
               target="weatherapp"
-              >Una mini app del tiempo</a
+              >Una pequeña app del tiempo desplegada en Render</a
             >
           </li>
         </ul>

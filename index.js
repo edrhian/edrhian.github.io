@@ -1,4 +1,5 @@
-let btnBackToTop = document.querySelector("#backToTop");
+const btnBackToTop = document.querySelector("#backToTop");
+const aCopyPortfolio = document.querySelector("#copyPortfolio");
 
 window.onscroll = () => {
   if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
@@ -14,6 +15,16 @@ let topFunction = () => {
 };
 
 let copyToClipboard = () => {
-  navigator.clipboard.writeText("edrhian.github.io");
-  alert("Enlace de portfolio copiado al portapapeles");
+  navigator.clipboard
+    .writeText("https://edrhian.github.io")
+    .then(() => {
+      aCopyPortfolio.textContent = "¡Copiado!";
+
+      setTimeout(() => {
+        aCopyPortfolio.textContent = "Copiar enlace";
+      }, 2000);
+    })
+    .catch((err) => {
+      console.error("Error al copiar al portapapeles: ", err);
+    });
 };

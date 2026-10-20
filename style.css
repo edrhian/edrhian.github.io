@@ -6,8 +6,8 @@
   --bg-color-1: #ededed;
   --bg-color-2: #fdfdfd;
   --text-muted: #666;
-  --text-date: #999;
-  --accent: #007aff;
+  --text-date: #6b6b6b;
+  --accent: #0066cc;
   --border: #777;
   --color-primary: #272727;
 }
@@ -48,7 +48,7 @@ footer {
 
 .navbar {
   list-style: none;
-  margin: 0 auto;
+  padding-left: 0;
   padding-top: 12px;
   padding-bottom: 12px;
   display: flex;
@@ -237,5 +237,15 @@ footer p {
   h3 .time {
     margin-left: 0;
     margin-top: 2px;
+  }
+
+  .navbar,
+  header,
+  main,
+  footer {
+    margin: 0 1.25rem;
+  }
+  h1 {
+    font-size: 2rem;
   }
 }
